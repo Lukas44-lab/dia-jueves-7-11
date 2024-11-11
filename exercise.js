@@ -22,10 +22,10 @@ const firstName='pepe'
 console.log(greeting2+firstName);
 
 // 5-Crea una función que imprima por consola el string 'Hello World'.
-function helloWord(){
-    console.log('hello world');   
+function render(value){
+    console.log(value);   
 }
-helloWord()
+render('hello word')
 // 6-Crea una función que, al ser llamada, imprima por consola el resultado de la multiplicación de dos números introducidos como parámetros.
 function multiplication(a,b) {
     const operation=a*b
@@ -33,26 +33,73 @@ function multiplication(a,b) {
 }
 multiplication(2,2)
 
-
+function multi(a,b) {
+    return a+b
+}
+console.log(multi(2,2));
 // Crea una función que imprima por consola el resultado de elevar al cubo un número dado como parámetro.
 function cube(a) {
-    const operation=a*a*a
-    console.log(operation);  
+    const result=a **3
+    return result  
 }
-cube(3)
+render(cube(3))
 
 // Crea una función que saque por consola el área de un rectángulo de dimensiones dadas como parámetro. (base, altura)
 function areaRectangle(a,b) {
-    const operation=a*b
-    console.log(operation);
-}
-areaRectangle(3,4)
-// Crea una función que imprima por consola un número al azar entre 0 y 10.
+    const result=a*b
+    return result
+};
+render(areaRectangle(3,4))
+//forma 2
+function areaRectangleOrtriangle(a,b,isRectangle) {
+    let result;
+    if(isRectangle){
+        result =a*b;
+        return result
+    }
+    result= (a*b)/ 2; 
+    return result
+};
+render(areaRectangleOrtriangle(3,4,false))
+//operador ternario
+function areaRectangleOrtriangle2(a,b,isRectangle) {
+    return isRectangle ? a*b :(a*b) / 2;
+};
+render(areaRectangleOrtriangle2(2,5,true));
+// Crea una función que imprima por consola un número entero al azar entre 0 y 10 .
+//Math.random() numero pseudo aleatorio entre 0 y 1
+function randomNumber() {
+    const r=Math.random() * 9 + 1;
+    return Math.trunc(r)
+};
 
+render(randomNumber())
 /*Adivina el número: Crea una función que primero guarde en una variable un número aleatorio del 1 al 10. Después, pregunte al usuario 
  a través de un prompt un número del 1 al 10. Una vez recibida la respuesta, compare estos dos números. Si los números coinciden, imprime
  por consola un string indicando que el usuario ha acertado, sino, imprime por consola que el usuario ha fallado seguido del número 
  correcto.*/
+
+function app() {
+    const expected=randomNumber()
+    const numeroUsuario=prompt('pon un numero del 1 al 10');
+    const isCorrect= expected ===Number(numeroUsuario);
+    if(isCorrect){
+      render('has acertado');
+    }else {
+    render(`no acertaste, el numero era ${expected}`);  
+}
+}
+//vercion ternario
+function app2() {
+    const expected=randomNumber()
+    const numeroUsuario=prompt('pon un numero del 1 al 10');
+    const isCorrect= expected ===Number(numeroUsuario);
+    const result=isCorrect?'has acertado': `no acertaste, el numero era ${expected}`;
+    render(result);  
+}
+
+
+
 
 // Crea una función que reciba un número como parámetro e imprima por consola si el número dado es par o impar.
 function parImpar(a) {
