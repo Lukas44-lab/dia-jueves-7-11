@@ -110,7 +110,31 @@ function parImpar(a) {
     }
 }
 parImpar(2)
+
+function everOrOdd(num) {
+    if(!Number.isInteger(num)){
+    return 'no es un numero entero'
+    }
+    let result='inpar'
+    if (num % 2 === 0) {
+        result='par'
+    }
+    return result
+}
+const value2=23;
+console.log(`${value2} es ${everOrOdd(value2)}`);
+
 // Crea una función que reciba un parámetro de tipo string e imprima por consola el string revertido. (ejemplo: 'casa' => 'asac).
+
+function revertString(value) {
+    let accumulator='';
+    for (let i = value.length-1; i>=0; i--) {
+        const element = value[i];
+        accumulator=accumulator+element 
+    }
+    return accumulator
+}
+console.log(revertString('3hola3'));
 
 // Crea una función que imprima por consola la tabla de multiplicar de un número introducido como parámetro.
 function multiplicaciónTable(a) {
@@ -120,9 +144,57 @@ function multiplicaciónTable(a) {
     }
 }
 multiplicaciónTable(2)
+
 // Crea una función que reciba un número por parámetros e imprima por consola si el número recibido es un número primo.
-function primeNumber(a) {
-    if (a) {
-        
+function isPrime(num) {
+    if (!Number.isInteger(num) || num<0) {
+        return 'el valor no es valido'
     }
+    
+    if (num < 2) return false
+    
+    for(let i =2; i<num; i++){
+        if(num%i ===0){
+            return false
+        }
+    }
+    return true;
 }
+
+function renderPrime(n) {
+    let result=isPrime(n)
+    if (typeof result ==='boolean') {
+        result =result ? 'es primo' : 'no es primo';
+    }
+
+}
+
+console.log(0, isPrime(0) ? 'es primo' : 'no es primo');
+console.log(1, isPrime(1) ? 'es primo' : 'no es primo');
+console.log(2, isPrime(2) ? 'es primo' : 'no es primo');
+console.log(9, isPrime(9) ? 'es primo' : 'no es primo');
+
+//tirar un dado 1 vez
+
+function rollDiceNFriki(n) {
+    let accumulator =0;
+    for(let i=0;i < n;i++){
+        const dice=Math.trunc(Math.random()* 6) + 1
+        console.log('valor del dado: ',dice);
+        //acumulator += dice
+        accumulator=accumulator+dice;
+    }
+    console.log('total', accumulator);
+    
+}
+rollDiceNFriki(10)
+const cad = 'hola que tal';
+console.log(cad.length);
+// esto error cad[3]='r';
+console.log(cad[3]);
+
+for(let i=0; i< cad.length; i++){
+    const element=cad[i];
+    console.log(element);
+}
+//
