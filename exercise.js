@@ -130,16 +130,24 @@ function revertString(value) {
     let accumulator='';
     for (let i = value.length-1; i>=0; i--) {
         const element = value[i];
-        accumulator=accumulator+element 
+        accumulator=accumulator+element ;
     }
     return accumulator
 }
 console.log(revertString('3hola3'));
 
+function revertStringbyArray(value='') {
+    // const array=value.split()
+    // array.reverse()
+    // const result=array.join('')
+    // return result
+    return value.split('').reverse().join('');
+}
+console.log( revertStringbyArray('lucas'));
 // Crea una función que imprima por consola la tabla de multiplicar de un número introducido como parámetro.
 function multiplicaciónTable(a) {
     console.log('tabla de multiplicacion de: '+a);
-    for (let i = 1;i <=10; i++) {
+    for (let i = 0;i <=10; i++) {
         console.log(`${a} x ${i}= ${a*i}`);
     }
 }
